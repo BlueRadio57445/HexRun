@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Player.gd" type="Script" id=1]
+[ext_resource path="res://Images/player.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Timer
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var hex_scene = preload(\"res://Objects/Hex.tscn\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	call_deferred(\"spawn_hex\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed(\"ui_end\"):
+		spawn_hex()
+
+func spawn_hex():
+	var rng = rand_range(0, 6)
+	var hex_node = hex_scene.instance()
+	hex_node.rotation = rng * PI
+	get_tree().current_scene.add_child(hex_node)
+
+
+
+func _on_HexSpawner_timeout():
+	spawn_hex()
+"
+
+[node name="World" type="Node2D"]
+
+[node name="Player" type="KinematicBody2D" parent="." groups=["Player"]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="HexSpawner" type="Timer" parent="."]
+process_mode = 0
+wait_time = 3.0
+autostart = true
+script = SubResource( 3 )
+
+[connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]

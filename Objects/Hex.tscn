@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Hex.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 50, 5 )
+
+[node name="Hex" type="StaticBody2D" groups=["Hex"]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 50, 86.6, 100, 0, 50, -86.6, -50, -86.6, -100, 0, -50, 86.6 )
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -86.6 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 75, -43.3 )
+rotation = 1.0472
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 75, 43.3 )
+rotation = 2.0944
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2( -75, 43.3 )
+rotation = 1.0472
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2( -75, -43.3 )
+rotation = -1.0472
+shape = SubResource( 1 )
+
+[node name="ScoreBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="ScoreBox"]
+position = Vector2( 0, 86.6 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="ScoreBox" to="." method="_on_ScoreBox_body_entered"]
