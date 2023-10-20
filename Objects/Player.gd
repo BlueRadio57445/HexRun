@@ -1,20 +1,14 @@
 extends CharacterBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var direction = Vector2.ZERO
 var speed = 100
+
+@export var game_manager : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _physics_process(delta):
 	direction = Vector2.ZERO
@@ -29,4 +23,4 @@ func _physics_process(delta):
 		var collider = get_last_slide_collision().get_collider()
 		if collider.is_in_group("Hex"):
 			queue_free()
-			get_parent().get_node("EndMenu").visible = true
+			game_manager.get_node("EndMenu").visible = true
