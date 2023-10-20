@@ -9,6 +9,7 @@ var delta_scale = 0.8
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	scale = Vector2(my_scale, my_scale)
 	pass # Replace with function body.
 
 

@@ -17,7 +17,7 @@ func _ready():
 #	pass
 
 func _physics_process(delta):
-	var direction := Vector2.ZERO
+	direction = Vector2.ZERO
 	direction.x = Input.get_action_raw_strength("ui_right") - Input.get_action_raw_strength("ui_left")
 	direction.y = Input.get_action_raw_strength("ui_down") - Input.get_action_raw_strength("ui_up")
 		
@@ -29,5 +29,4 @@ func _physics_process(delta):
 		var collider = get_last_slide_collision().get_collider()
 		if collider.is_in_group("Hex"):
 			queue_free()
-			#EndMenu.visible = true
 			get_parent().get_node("EndMenu").visible = true
