@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://Scenes/World.tscn")
+	get_tree().change_scene_to_file("res://Scenes/World.tscn")
 
 
 func _on_Button_pressed():

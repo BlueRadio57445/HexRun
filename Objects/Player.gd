@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
 # Declare member variables here. Examples:
@@ -17,21 +17,17 @@ func _ready():
 #	pass
 
 func _physics_process(delta):
-	direction = Vector2.ZERO
-	if Input.is_action_pressed("ui_right"):
-		direction.x = 1
-	if Input.is_action_pressed("ui_left"):
-		direction.x = -1
-	if Input.is_action_pressed("ui_down"):
-		direction.y = 1
-	if Input.is_action_pressed("ui_up"):
-		direction.y = -1
+	var direction := Vector2.ZERO
+	direction.x = Input.get_action_raw_strength("ui_right") - Input.get_action_raw_strength("ui_left")
+	direction.y = Input.get_action_raw_strength("ui_down") - Input.get_action_raw_strength("ui_up")
 		
 	direction.normalized()
-	move_and_slide(direction * speed)
+	set_velocity(direction * speed)
+	move_and_slide()
 	
 	if get_last_slide_collision() != null:
 		var collider = get_last_slide_collision().get_collider()
 		if collider.is_in_group("Hex"):
 			queue_free()
-			EndMenu.visible = true
+			#EndMenu.visible = true
+			get_parent().get_node("EndMenu").visible = true
