@@ -5,6 +5,11 @@ var speed = 200
 	
 func _physics_process(delta):
 	move()
+	
+
+func kill_game():
+	queue_free()
+	GameManager.end_game()
 
 #move
 func move():
@@ -15,5 +20,7 @@ func move():
 #die if we touch hex
 func _on_HitBox_body_entered(body:Node):
 	if body.is_in_group("Hex"):
-		queue_free()
-		GameManager.end_game()
+		kill_game()
+	if body.is_in_group("HexBlue"):
+		kill_game()
+

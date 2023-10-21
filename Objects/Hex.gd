@@ -24,3 +24,6 @@ func _on_Score_body_entered(body:Node):
 	if body.is_in_group("Player"):
 		#add score if player pass it
 		GameManager.score.score += pass_score
+
+
+func _on_collision_blue_body_entered(body):

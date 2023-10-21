@@ -29,7 +29,7 @@ func _on_HexSpawner_timeout():
 	else:
 		is_previous_invert = false
 
-func spawn_hex(delta_rotation,threshold = 0.1):
+func spawn_hex(delta_rotation: float,threshold = 0.1):
 	var hex = hex_scene.instantiate()
 	hex.rotation = randi()
 	hex.delta_rotation = delta_rotation
