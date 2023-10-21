@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://lo67vy5wowxh"]
+[gd_scene load_steps=5 format=3 uid="uid://lo67vy5wowxh"]
 
 [ext_resource type="PackedScene" uid="uid://cg8t6bafc2ypy" path="res://GUI/Score.tscn" id="1_1desk"]
 [ext_resource type="Script" path="res://Scenes/GameManager.gd" id="1_7du4e"]
 [ext_resource type="PackedScene" path="res://GUI/EndMenu.tscn" id="2_nr4ej"]
+[ext_resource type="PackedScene" uid="uid://cvqpcit0grmrc" path="res://GUI/RoguelikeMenu.tscn" id="4_k6e5l"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("score", "end_menu")]
 script = ExtResource("1_7du4e")
@@ -13,3 +14,5 @@ end_menu = NodePath("EndMenu")
 
 [node name="EndMenu" parent="." instance=ExtResource("2_nr4ej")]
 layout_mode = 3
+
+[node name="RoguelikeMenu" parent="." instance=ExtResource("4_k6e5l")]
