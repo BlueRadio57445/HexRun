@@ -1,26 +1,19 @@
 extends CharacterBody2D
 
+var speed = 200
 
-var direction = Vector2.ZERO
-var speed = 100
-
-@export var game_manager : Node
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+	
 func _physics_process(delta):
-	direction = Vector2.ZERO
-	direction.x = Input.get_action_raw_strength("ui_right") - Input.get_action_raw_strength("ui_left")
-	direction.y = Input.get_action_raw_strength("ui_down") - Input.get_action_raw_strength("ui_up")
-		
-	direction.normalized()
+	move()
+
+#move
+func move():
+	#get the direction to move, this is already normalized
+	var direction = Input.get_vector('ui_left','ui_right','ui_up','ui_down')
 	set_velocity(direction * speed)
 	move_and_slide()
-	
-	if get_last_slide_collision() != null:
-		var collider = get_last_slide_collision().get_collider()
-		if collider.is_in_group("Hex"):
-			queue_free()
-			game_manager.get_node("EndMenu").visible = true
+#die if we touch hex
+func _on_HitBox_body_entered(body:Node):
+	if body.is_in_group("Hex"):
+		queue_free()
+		EndMenu.show()
