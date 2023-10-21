@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dvse5bbgrthua"
-path="res://.godot/imported/jf-openhuninn-1.1.ttf-723b1a9d28e0d2dd77ad18afc63d3cac.fontdata"
+path="res://.godot/imported/jf-openhuninn-1.1.ttf-959f660883d0093a4afd16d908498065.fontdata"
 
 [deps]
 
-source_file="res://jf-openhuninn-1.1.ttf"
-dest_files=["res://.godot/imported/jf-openhuninn-1.1.ttf-723b1a9d28e0d2dd77ad18afc63d3cac.fontdata"]
+source_file="res://Fonts/jf-openhuninn-1.1.ttf"
+dest_files=["res://.godot/imported/jf-openhuninn-1.1.ttf-959f660883d0093a4afd16d908498065.fontdata"]
 
 [params]
 

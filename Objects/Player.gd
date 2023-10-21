@@ -16,4 +16,4 @@ func move():
 func _on_HitBox_body_entered(body:Node):
 	if body.is_in_group("Hex"):
 		queue_free()
-		EndMenu.show()
+		GameManager.end_game()

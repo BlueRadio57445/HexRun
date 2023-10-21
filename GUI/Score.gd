@@ -1,11 +1,15 @@
 extends Control
 
 
-var score = 0
+var score:int = 0:
+	get:
+		return score
+	set(value):
+		score = value
+		refresh()
 
 #Set as top level so this will be on top of anything else
 func _ready():
-	randomize()
 	#set to top level so it will be ontop on everything
 	var canvas_rid = get_canvas_item()
 	RenderingServer.canvas_item_set_z_index(canvas_rid, 100)
@@ -20,4 +24,3 @@ func refresh():
 #reset score
 func restart():
 	score = 0
-	refresh()

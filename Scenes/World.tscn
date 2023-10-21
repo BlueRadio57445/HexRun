@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0cmwmajgvhd4"]
 
-[ext_resource type="Script" path="res://Objects/Player.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://wpwb6n37hei5" path="res://Images/square.png" id="2_oxux6"]
-[ext_resource type="Script" path="res://Objects/HexSpawner.gd" id="4"]
+[ext_resource type="Script" path="res://Objects/Player.gd" id="1_8qoow"]
+[ext_resource type="Texture2D" uid="uid://wpwb6n37hei5" path="res://Images/square.png" id="2_5mf8a"]
+[ext_resource type="Script" path="res://Objects/HexSpawner.gd" id="3_mwl6w"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 16)
@@ -15,10 +15,10 @@ size = Vector2(16, 16)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-script = ExtResource("2")
+script = ExtResource("1_8qoow")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_oxux6")
+texture = ExtResource("2_5mf8a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("1")
@@ -31,7 +31,7 @@ shape = SubResource("2")
 [node name="HexSpawner" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
-script = ExtResource("4")
+script = ExtResource("3_mwl6w")
 
 [connection signal="body_entered" from="Player/HitBox" to="Player" method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]

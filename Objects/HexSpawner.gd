@@ -12,11 +12,11 @@ func _on_HexSpawner_timeout():
 	#i don't know what does this do so i'll keep it
 	var r = rng.randi_range(0, 9)
 	if !is_previous_invert:
-		if Score.score <= 10:
+		if GameManager.score.score <= 10:
 			spawn_hex(0)
-		elif Score.score <= 20:
+		elif GameManager.score.score <= 20:
 			spawn_hex(0.005)
-		elif Score.score <= 30:
+		elif GameManager.score.score <= 30:
 			if r <= 5:
 				spawn_hex(0, -2)
 			else:

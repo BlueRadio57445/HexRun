@@ -9,7 +9,7 @@ func _ready():
 #restart game
 func _on_RestartButton_pressed():
 	hide()
-	Score.restart()
+	GameManager.score.restart()
 	get_tree().reload_current_scene()
 
 

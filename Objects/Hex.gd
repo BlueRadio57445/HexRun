@@ -23,5 +23,4 @@ func _physics_process(delta):
 func _on_Score_body_entered(body:Node):
 	if body.is_in_group("Player"):
 		#add score if player pass it
-		Score.score += pass_score
-		Score.refresh()
+		GameManager.score.score += pass_score
