@@ -2,7 +2,7 @@ extends Control
 
 #change scene to the game scene
 func _on_PlayButton_pressed():
-	GameManager.score.restart()
+	GameManager.game_start()
 	get_tree().change_scene_to_file("res://Scenes/World.tscn")
 
 #quit the game

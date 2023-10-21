@@ -11,6 +11,7 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="World" type="Node2D"]
+process_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
