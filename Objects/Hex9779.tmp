@@ -9,13 +9,14 @@ size = Vector2(100, 10)
 [node name="Hex" instance=ExtResource("1_opvg1")]
 script = ExtResource("2_rru4y")
 
-[node name="CollisionBlue" type="Area2D" parent="." index="7" groups=["Blue"]]
+[node name="Collision" type="Area2D" parent="." index="7"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBlue" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" index="0"]
 position = Vector2(0, 86.6)
 shape = SubResource("RectangleShape2D_heytq")
 
-[node name="Line2D" type="Line2D" parent="CollisionBlue" index="1"]
-z_index = -1
+[node name="Line2D" type="Line2D" parent="Collision" index="1"]
 points = PackedVector2Array(-50, 86.6, 50, 86.6)
 default_color = Color(0.341176, 0.45098, 1, 1)
+
+[connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

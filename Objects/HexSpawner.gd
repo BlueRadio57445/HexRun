@@ -1,11 +1,22 @@
 extends Timer
 
-
+#preload scenes
 var hex_scene = preload("res://Objects/Hex.tscn")
+var hex_blue_scene = preload("res://Objects/HexBlue.tscn")
+const hex_orange_scene = preload("res://Objects/HexOrange.tscn")
+var spawner_pool = [hex_scene]
+
 var rng = RandomNumberGenerator.new()
 var is_previous_invert :bool = false
 
+#ATTENTION: should be changed to false after created rogue-like component
+var can_spawn_blue: bool = true
+var can_spawn_orange: bool = true
+
 func _ready():
+	# initialize spawner_pool
+	if(can_spawn_blue):	spawner_pool.append(hex_blue_scene)
+	if(can_spawn_orange): spawner_pool.append(hex_orange_scene)
 	spawn_hex(0)
 
 func _on_HexSpawner_timeout():
@@ -30,7 +41,11 @@ func _on_HexSpawner_timeout():
 		is_previous_invert = false
 
 func spawn_hex(delta_rotation: float,threshold = 0.1):
-	var hex = hex_scene.instantiate()
+	# randomly spawn hex in spawner_pool
+	var rand_index = randi_range(0, spawner_pool.size()-1)
+	var hex = spawner_pool[rand_index].instantiate()
+	
+	# setting hex status
 	hex.rotation = randi()
 	hex.delta_rotation = delta_rotation
 	hex.threshold = threshold

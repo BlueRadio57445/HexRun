@@ -34,5 +34,6 @@ wait_time = 3.0
 autostart = true
 script = ExtResource("3_mwl6w")
 
+[connection signal="area_entered" from="Player/HitBox" to="Player" method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="Player/HitBox" to="Player" method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]

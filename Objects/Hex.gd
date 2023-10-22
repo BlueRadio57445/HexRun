@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+class_name Hex
 
 var my_scale :float= 6
 var delta_scale :float= -0.8
@@ -24,7 +25,3 @@ func _on_Score_body_entered(body:Node):
 	if body.is_in_group("Player"):
 		#add score if player pass it
 		GameManager.score.score += pass_score
-
-
-func _on_collision_blue_body_entered(body):
-	pass
