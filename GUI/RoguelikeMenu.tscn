@@ -31,17 +31,21 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 
 [node name="Option1" type="TextureButton" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("2_33ibi")
 
 [node name="Option2" type="TextureButton" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("2_33ibi")
 
 [node name="Option3" type="TextureButton" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("2_33ibi")
 
 [connection signal="button_up" from="CenterContainer/HBoxContainer/Option1" to="." method="_on_option_1_button_up"]
