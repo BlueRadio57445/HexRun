@@ -8,15 +8,17 @@
 [node name="GameManager" type="Node" node_paths=PackedStringArray("score", "end_menu", "roguelike_menu")]
 process_mode = 3
 script = ExtResource("1_7du4e")
-score = NodePath("Score")
-end_menu = NodePath("EndMenu")
-roguelike_menu = NodePath("RoguelikeMenu")
+score = NodePath("CanvasLayer/Score")
+end_menu = NodePath("CanvasLayer/EndMenu")
+roguelike_menu = NodePath("CanvasLayer/RoguelikeMenu")
 
-[node name="Score" parent="." instance=ExtResource("1_1desk")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="EndMenu" parent="." instance=ExtResource("2_nr4ej")]
+[node name="EndMenu" parent="CanvasLayer" instance=ExtResource("2_nr4ej")]
 
-[node name="RoguelikeMenu" parent="." instance=ExtResource("4_k6e5l")]
+[node name="RoguelikeMenu" parent="CanvasLayer" instance=ExtResource("4_k6e5l")]
+
+[node name="Score" parent="CanvasLayer" instance=ExtResource("1_1desk")]
 
 [node name="RoguelikeTimer" type="Timer" parent="."]
 wait_time = 15.0

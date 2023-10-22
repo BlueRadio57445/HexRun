@@ -5,10 +5,11 @@
 
 [node name="RoguelikeMenu" type="Control"]
 layout_mode = 3
-anchor_left = -0.5
-anchor_top = -0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_l6spm")
 
 [node name="Panel" type="Panel" parent="."]
@@ -20,18 +21,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.53
-offset_right = -0.530029
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Option1" type="TextureButton" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Option1" type="TextureButton" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_33ibi")
 
-[connection signal="button_up" from="HBoxContainer/Option1" to="." method="_on_option_1_button_up"]
+[node name="Option2" type="TextureButton" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_33ibi")
+
+[node name="Option3" type="TextureButton" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_33ibi")
+
+[connection signal="button_up" from="CenterContainer/HBoxContainer/Option1" to="." method="_on_option_1_button_up"]
+[connection signal="button_up" from="CenterContainer/HBoxContainer/Option2" to="." method="_on_option_1_button_up"]
+[connection signal="button_up" from="CenterContainer/HBoxContainer/Option3" to="." method="_on_option_1_button_up"]

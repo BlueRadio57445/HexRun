@@ -15,10 +15,18 @@ func _process(delta):
 	pass
 
 func game_start():
+	score.show()
 	score.restart()
 	$RoguelikeTimer.start()
-
+	
+func restart_game():
+	end_menu.hide()
+	GameManager.score.restart()
+	$RoguelikeTimer.start()
+	get_tree().reload_current_scene()
+	
 func end_game():
+	$RoguelikeTimer.stop()
 	end_menu.show()
 
 func resume_game():
