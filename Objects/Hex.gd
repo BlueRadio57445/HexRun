@@ -27,3 +27,4 @@ func _on_Score_body_entered(body:Node):
 
 
 func _on_collision_blue_body_entered(body):
+	pass

@@ -4,6 +4,9 @@
 [ext_resource type="FontFile" uid="uid://dvse5bbgrthua" path="res://Fonts/jf-openhuninn-1.1.ttf" id="2_iml80"]
 
 [sub_resource type="FontFile" id="1"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("2_iml80")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
