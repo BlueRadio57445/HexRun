@@ -27,11 +27,14 @@ func _on_HitBox_body_entered(body:Node):
 		print("white")
 		kill_game()
 
-
-
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("Blue") && is_moving():
 		kill_game()
 		
 	if area.is_in_group("Orange") && !is_moving():
+		kill_game()
+	
+	#hit by the laser
+	if area.is_in_group("Laser"):
+		print("burned")
 		kill_game()

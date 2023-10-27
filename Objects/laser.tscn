@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://58fvl27p224m"]
+
+[ext_resource type="Script" path="res://Objects/laser.gd" id="1_3stvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbami"]
+size = Vector2(1500, 50)
+
+[node name="Laser" type="Area2D" groups=["Laser"]]
+script = ExtResource("1_3stvh")
+metadata/_edit_group_ = true
+
+[node name="FiredLaser" type="Line2D" parent="."]
+points = PackedVector2Array(750, 0, -750, 0)
+width = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tbami")

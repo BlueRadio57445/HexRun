@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci0o4shk3hi1c"]
+
+[ext_resource type="Script" path="res://Objects/laser_warning.gd" id="1_isk1o"]
+
+[node name="LaserWarning" type="Line2D"]
+points = PackedVector2Array(750, 0, -750, 0)
+width = 50.0
+default_color = Color(1, 0, 0, 0.392157)
+script = ExtResource("1_isk1o")
