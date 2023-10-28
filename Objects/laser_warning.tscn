@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Objects/laser_warning.gd" id="1_isk1o"]
 
 [node name="LaserWarning" type="Line2D"]
-points = PackedVector2Array(750, 0, -750, 0)
+points = PackedVector2Array(1250, 0, -1250, 0)
 width = 50.0
 default_color = Color(1, 0, 0, 0.392157)
 script = ExtResource("1_isk1o")
