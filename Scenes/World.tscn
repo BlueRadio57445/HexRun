@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0cmwmajgvhd4"]
+[gd_scene load_steps=8 format=3 uid="uid://d0cmwmajgvhd4"]
 
 [ext_resource type="Script" path="res://Objects/Player.gd" id="1_8qoow"]
 [ext_resource type="Texture2D" uid="uid://wpwb6n37hei5" path="res://Images/square.png" id="2_5mf8a"]
 [ext_resource type="Script" path="res://Objects/HexSpawner.gd" id="3_mwl6w"]
 [ext_resource type="Script" path="res://Scenes/LaserSpawner.gd" id="4_3ej7g"]
+[ext_resource type="Script" path="res://Objects/ItemSpawner.gd" id="5_mgcnr"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 16)
@@ -41,7 +42,13 @@ wait_time = 5.0
 autostart = true
 script = ExtResource("4_3ej7g")
 
+[node name="ItemSpawner" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+script = ExtResource("5_mgcnr")
+
 [connection signal="area_entered" from="Player/HitBox" to="Player" method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="Player/HitBox" to="Player" method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]
 [connection signal="timeout" from="LaserSpawner" to="LaserSpawner" method="_on_timeout"]
+[connection signal="timeout" from="ItemSpawner" to="ItemSpawner" method="_on_timeout"]

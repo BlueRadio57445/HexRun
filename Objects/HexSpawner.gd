@@ -15,11 +15,19 @@ var can_spawn_orange: bool = true
 
 func _ready():
 	# initialize spawner_pool
+	spawner_pool = [hex_scene]
 	if(can_spawn_blue):	spawner_pool.append(hex_blue_scene)
 	if(can_spawn_orange): spawner_pool.append(hex_orange_scene)
+	
 	spawn_hex(0)
 
 func _on_HexSpawner_timeout():
+	
+	# init spawner pool
+	spawner_pool = [hex_scene]
+	if(can_spawn_blue):	spawner_pool.append(hex_blue_scene)
+	if(can_spawn_orange): spawner_pool.append(hex_orange_scene)
+	
 	#i don't know what does this do so i'll keep it
 	var r = rng.randi_range(0, 9)
 	if !is_previous_invert:
