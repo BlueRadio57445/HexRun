@@ -1,6 +1,7 @@
 extends Control
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
@@ -14,4 +15,5 @@ func _process(delta):
 
 func _on_option_1_button_up():
 	GameManager.resume_game()
+	GameManager.on_roguelike_button_pressed()
 	pass # Replace with function body.

@@ -10,7 +10,8 @@ func _physics_process(delta):
 	
 	print(state_invincible)
 	
-	
+func _ready():
+	GameManager.player_invicible.connect(_on_roguelike_button_pressed)
 
 func kill_game():
 	queue_free()
@@ -32,7 +33,11 @@ func move():
 func decrease_state():
 	state_invincible -= 1
 	if state_invincible < 0 : state_invincible = 0
-	
+
+func _on_roguelike_button_pressed():
+	state_invincible = 6 * 60
+	print("成功")
+
 func _on_HitBox_body_entered(body:Node):
 	if body.is_in_group("Hex") && !is_invincible():
 		kill_game()
