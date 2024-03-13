@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
-var speed = 200
+var speed_normal = 200
+var speed_dash = 500
 
 var state_invincible = 0
-	
+@export var SkillDash :Node
+
+
 func _physics_process(delta):
 	decrease_state()
 	move()
@@ -26,6 +29,11 @@ func is_invincible():
 func move():
 	#get the direction to move, this is already normalized
 	var direction = Input.get_vector('ui_left','ui_right','ui_up','ui_down')
+	var speed = speed_normal
+	
+	
+	if SkillDash.can_dash():
+		speed = speed_dash 
 	set_velocity(direction * speed)
 	move_and_slide()
 #die if we touch hex

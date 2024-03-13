@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0cmwmajgvhd4"]
+[gd_scene load_steps=9 format=3 uid="uid://d0cmwmajgvhd4"]
 
 [ext_resource type="Script" path="res://Objects/Player.gd" id="1_8qoow"]
 [ext_resource type="Texture2D" uid="uid://wpwb6n37hei5" path="res://Images/square.png" id="2_5mf8a"]
+[ext_resource type="Script" path="res://Objects/SkillDash.gd" id="3_078ty"]
 [ext_resource type="Script" path="res://Objects/HexSpawner.gd" id="3_mwl6w"]
 [ext_resource type="Script" path="res://Scenes/LaserSpawner.gd" id="4_3ej7g"]
 [ext_resource type="Script" path="res://Objects/ItemSpawner.gd" id="5_mgcnr"]
@@ -17,8 +18,9 @@ process_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("SkillDash") groups=["Player"]]
 script = ExtResource("1_8qoow")
+SkillDash = NodePath("SkillDash")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("2_5mf8a")
@@ -30,6 +32,9 @@ shape = SubResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HitBox"]
 shape = SubResource("2")
+
+[node name="SkillDash" type="Node" parent="Player"]
+script = ExtResource("3_078ty")
 
 [node name="HexSpawner" type="Timer" parent="."]
 wait_time = 3.0
