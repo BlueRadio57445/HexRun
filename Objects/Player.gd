@@ -68,3 +68,6 @@ func _on_hit_box_area_entered(area):
 	if area.is_in_group("Laser"):
 		print("burned")
 		kill_game()
+	
+	if area.is_in_group("Bugger"):
+		kill_game()
