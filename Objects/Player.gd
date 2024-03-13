@@ -41,14 +41,17 @@ func _on_hit_box_area_entered(area):
 	if area.is_in_group("Item_Star"):
 		state_invincible = 6 * 60
 	
-	
-	if area.is_in_group("Blue") && is_moving() && !is_invincible():
+	# early return during invincible
+	if is_invincible():
+		return;
+		
+	if area.is_in_group("Blue") && is_moving():
 		kill_game()
 		
-	if area.is_in_group("Orange") && !is_moving() && !is_invincible():
+	if area.is_in_group("Orange") && !is_moving():
 		kill_game()
 	
 	#hit by the laser
-	if area.is_in_group("Laser") && !is_invincible():
+	if area.is_in_group("Laser"):
 		print("burned")
 		kill_game()
