@@ -61,5 +61,5 @@ func _on_hit_box_area_entered(area):
 		print("burned")
 		kill_game()
 	
-	if area.is_in_group("Bugger") && !is_invincible():
+	if area.is_in_group("Bugger"):
 		kill_game()

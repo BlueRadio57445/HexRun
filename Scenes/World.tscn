@@ -61,11 +61,13 @@ color = Color(1, 0.984314, 0, 1)
 polygon = PackedVector2Array(-5, -8.66, 5, -8.66, 10, 0, 5, 8.66, -5, 8.66, -10, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bugger"]
+build_mode = 1
 polygon = PackedVector2Array(-5, -8.66, 5, -8.66, 10, 0, 5, 8.66, -5, 8.66, -10, 0)
 
-[node name="HitBox" type="Area2D" parent="Bugger"]
+[node name="HitBox" type="Area2D" parent="Bugger" groups=["Bugger"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bugger/HitBox"]
+build_mode = 1
 polygon = PackedVector2Array(-5, -8.66, 5, -8.66, 10, 0, 5, 8.66, -5, 8.66, -10, 0)
 
 [connection signal="area_entered" from="Player/HitBox" to="Player" method="_on_hit_box_area_entered"]
