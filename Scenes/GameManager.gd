@@ -1,5 +1,7 @@
 extends Node
 
+signal player_invicible
+
 @export var score : Node
 @export var end_menu : Node
 @export var roguelike_menu:Node
@@ -39,3 +41,6 @@ func _on_roguelike_timer_timeout():
 	get_tree().paused = true
 	roguelike_menu.show()
 	pass # Replace with function body.
+	
+func on_roguelike_button_pressed():
+	emit_signal("player_invicible")
