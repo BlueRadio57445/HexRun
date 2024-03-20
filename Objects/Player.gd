@@ -53,11 +53,13 @@ func _on_HitBox_body_entered(body:Node):
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("Item_Star"):
 		state_invincible = 6 * 60
+		$AnimationPlayer.play("RainbowShine")
 	
 	# early return during invincible
-	if is_invincible():
-		return;
-		
+	if is_invincible(): return;
+	$AnimationPlayer.stop(true)	
+	$AnimationPlayer.play("RESET")
+	
 	if area.is_in_group("Blue") && is_moving():
 		kill_game()
 		

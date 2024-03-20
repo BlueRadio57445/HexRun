@@ -16,7 +16,6 @@ func _process(delta):
 		dash_timer = dash_limit
 		dash_cooltime_timer = dash_cooltime_limit
 			
-	print("this is: ", dash_timer,", ", dash_cooltime_timer)
 	if dash_timer > 0: dash_timer -= delta
 	else: dash_cooltime_timer-= delta
 		
