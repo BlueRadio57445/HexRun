@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0cmwmajgvhd4"]
+[gd_scene load_steps=10 format=3 uid="uid://d0cmwmajgvhd4"]
 
 [ext_resource type="Script" path="res://Objects/Player.gd" id="1_8qoow"]
 [ext_resource type="Texture2D" uid="uid://wpwb6n37hei5" path="res://Images/square.png" id="2_5mf8a"]
@@ -59,6 +59,7 @@ script = ExtResource("5_mgcnr")
 [node name="Bugger" type="CharacterBody2D" parent="." groups=["Bugger"]]
 position = Vector2(217, 162)
 script = ExtResource("6_5qdvq")
+speed = 150.0
 metadata/_edit_group_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Bugger"]
