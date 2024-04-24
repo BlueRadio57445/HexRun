@@ -8,6 +8,7 @@ var player_node :Node2D
 
 func _ready():
 	player_node = get_node("/root/World/Player")
+	position = Vector2(575, 325)
 
 func _physics_process(delta):
 	Move()

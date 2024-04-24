@@ -100,7 +100,7 @@ autostart = true
 script = ExtResource("5_mgcnr")
 
 [node name="Bugger" type="CharacterBody2D" parent="." groups=["Bugger"]]
-position = Vector2(217, 162)
+position = Vector2(575, 325)
 script = ExtResource("6_5qdvq")
 speed = 150.0
 metadata/_edit_group_ = true
