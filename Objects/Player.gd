@@ -41,7 +41,7 @@ func decrease_state():
 	state_invincible -= 1
 	if state_invincible < 0:
 		state_invincible = 0
-		$AnimationPlayer.stop(true)	
+		$AnimationPlayer.stop(true)
 		$AnimationPlayer.play("RESET")
 
 #die if we touch hex
@@ -53,6 +53,7 @@ func _on_roguelike_button_pressed():
 	
 func  onHit():
 	LiveCount.lives -= 1
+	state_invincible = 1 * 60
 	$AnimationPlayer.play("onHit")
 
 func _on_HitBox_body_entered(body:Node):
