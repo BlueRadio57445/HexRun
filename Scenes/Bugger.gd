@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 
-@export var speed :float = 100.0
+@export var speed : float = 100.0
+@export var enable : bool = true
 
 var direction
 var player_node :Node2D
@@ -11,7 +12,8 @@ func _ready():
 	position = Vector2(575, 325)
 
 func _physics_process(delta):
-	Move()
+	if enable:
+		Move()
 
 func Move():
 	if has_node("/root/World/Player"):

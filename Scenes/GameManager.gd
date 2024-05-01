@@ -3,6 +3,7 @@ extends Node
 signal player_invicible
 
 @export var score : Node
+@export var lives : Node
 @export var end_menu : Node
 @export var roguelike_menu:Node
 
@@ -19,11 +20,16 @@ func _process(delta):
 func game_start():
 	score.show()
 	score.restart()
+	
+	lives.show()
+	lives.restart()
+	
 	$RoguelikeTimer.start()
 	
 func restart_game():
 	end_menu.hide()
 	GameManager.score.restart()
+	GameManager.lives.restart()
 	$RoguelikeTimer.start()
 	get_tree().reload_current_scene()
 	

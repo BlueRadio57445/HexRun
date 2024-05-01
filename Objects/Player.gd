@@ -2,29 +2,29 @@ extends CharacterBody2D
 
 var speed_normal = 200
 var speed_dash = 500
+var life_count = 3
 
 var state_invincible = 0
 @export var SkillDash :Node
 
 
 func _physics_process(delta):
-	decrease_state()
-	move()
+	if LiveCount.lives == 0:
+		queue_free()
+		GameManager.end_game()
 	
-	print(state_invincible)
+	move()
+	decrease_state()
 	
 func _ready():
 	GameManager.player_invicible.connect(_on_roguelike_button_pressed)
 
-func kill_game():
-	queue_free()
-	GameManager.end_game()
-
 func is_moving():
 	return !(get_velocity().is_zero_approx())
-	
+
 func is_invincible():
 	return state_invincible > 0
+
 #move
 func move():
 	#get the direction to move, this is already normalized
@@ -36,19 +36,28 @@ func move():
 		speed = speed_dash 
 	set_velocity(direction * speed)
 	move_and_slide()
-#die if we touch hex
-
+	
 func decrease_state():
 	state_invincible -= 1
-	if state_invincible < 0 : state_invincible = 0
+	if state_invincible < 0:
+		state_invincible = 0
+		$AnimationPlayer.stop(true)	
+		$AnimationPlayer.play("RESET")
 
+#die if we touch hex
 func _on_roguelike_button_pressed():
 	state_invincible = 6 * 60
+	$AnimationPlayer.play("RainbowShine")
+	
 	print("成功")
+	
+func  onHit():
+	LiveCount.lives -= 1
+	$AnimationPlayer.play("onHit")
 
 func _on_HitBox_body_entered(body:Node):
 	if body.is_in_group("Hex") && !is_invincible():
-		kill_game()
+		onHit()
 
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("Item_Star"):
@@ -57,19 +66,17 @@ func _on_hit_box_area_entered(area):
 	
 	# early return during invincible
 	if is_invincible(): return;
-	$AnimationPlayer.stop(true)	
-	$AnimationPlayer.play("RESET")
 	
 	if area.is_in_group("Blue") && is_moving():
-		kill_game()
+		onHit()
 		
 	if area.is_in_group("Orange") && !is_moving():
-		kill_game()
+		onHit()
 	
 	#hit by the laser
 	if area.is_in_group("Laser"):
 		print("burned")
-		kill_game()
+		onHit()
 	
 	if area.is_in_group("Bugger"):
-		kill_game()
+		onHit()

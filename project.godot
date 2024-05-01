@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GameManager="*res://Scenes/GameManager.tscn"
+LiveCount="*res://GUI/LiveCount.gd"
 
 [input]
 
