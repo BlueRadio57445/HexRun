@@ -8,9 +8,9 @@ var spawner_pool = []
 var rng = RandomNumberGenerator.new()
 
 #ATTENTION: should be changed to false after created rogue-like component
-@export var can_spawn_vertical_array_laser : bool = true
-@export var can_spawn_horizontal_array_laser : bool = true
-@export var can_spawn_ratated_laser : bool = true
+@export var can_spawn_vertical_array_laser : bool = false
+@export var can_spawn_horizontal_array_laser : bool = false
+@export var can_spawn_ratated_laser : bool = false
 
 func _ready():
 	# initialize spawner_pool
@@ -45,7 +45,6 @@ func _on_timeout():
 		for i in range(1, 20):
 			spawn_laser(90, -1000 + (spacing * i), 0)
 			await get_tree().create_timer(0.3).timeout
-		
 
 func spawn_laser(rotated: float = 0, positon_x: float = 0, position_y: float = 0):
 	#showing laser range for 1.5 seconds

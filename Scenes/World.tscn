@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0cmwmajgvhd4"]
+[gd_scene load_steps=13 format=3 uid="uid://d0cmwmajgvhd4"]
 
 [ext_resource type="Script" path="res://Objects/Player.gd" id="1_8qoow"]
 [ext_resource type="Texture2D" uid="uid://wpwb6n37hei5" path="res://Images/square.png" id="2_5mf8a"]
 [ext_resource type="Script" path="res://Objects/SkillDash.gd" id="3_078ty"]
 [ext_resource type="Script" path="res://Objects/HexSpawner.gd" id="3_mwl6w"]
-[ext_resource type="Script" path="res://Scenes/LaserSpawner.gd" id="4_3ej7g"]
 [ext_resource type="Script" path="res://Objects/ItemSpawner.gd" id="5_mgcnr"]
 [ext_resource type="Script" path="res://Scenes/Bugger.gd" id="6_5qdvq"]
 
@@ -127,15 +126,6 @@ wait_time = 3.0
 autostart = true
 script = ExtResource("3_mwl6w")
 
-[node name="LaserSpawner" type="Timer" parent="."]
-process_callback = 0
-wait_time = 5.0
-autostart = true
-script = ExtResource("4_3ej7g")
-can_spawn_vertical_array_laser = false
-can_spawn_horizontal_array_laser = false
-can_spawn_ratated_laser = false
-
 [node name="ItemSpawner" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
@@ -164,5 +154,4 @@ polygon = PackedVector2Array(-5, -8.66, 5, -8.66, 10, 0, 5, 8.66, -5, 8.66, -10,
 [connection signal="area_entered" from="Player/HitBox" to="Player" method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="Player/HitBox" to="Player" method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]
-[connection signal="timeout" from="LaserSpawner" to="LaserSpawner" method="_on_timeout"]
 [connection signal="timeout" from="ItemSpawner" to="ItemSpawner" method="_on_timeout"]
