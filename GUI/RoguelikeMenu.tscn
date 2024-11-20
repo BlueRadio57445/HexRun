@@ -49,5 +49,5 @@ size_flags_horizontal = 3
 texture_normal = ExtResource("2_33ibi")
 
 [connection signal="button_up" from="CenterContainer/HBoxContainer/Option1" to="." method="_on_option_1_button_up"]
-[connection signal="button_up" from="CenterContainer/HBoxContainer/Option2" to="." method="_on_option_1_button_up"]
-[connection signal="button_up" from="CenterContainer/HBoxContainer/Option3" to="." method="_on_option_1_button_up"]
+[connection signal="button_up" from="CenterContainer/HBoxContainer/Option2" to="." method="_on_option_2_button_up"]
+[connection signal="button_up" from="CenterContainer/HBoxContainer/Option3" to="." method="_on_option_3_button_up"]
