@@ -10,8 +10,8 @@ var rng = RandomNumberGenerator.new()
 var is_previous_invert :bool = false
 
 #ATTENTION: should be changed to false after created rogue-like component
-var can_spawn_blue: bool = true
-var can_spawn_orange: bool = true
+var can_spawn_blue: bool = false
+var can_spawn_orange: bool = false
 
 func _ready():
 	# initialize spawner_pool

@@ -8,7 +8,7 @@ var rng = RandomNumberGenerator.new()
 var spawner_pool = []
 
 #ATTENTION: should be changed to false after created rogue-like component
-var can_spawn_star: bool = true
+var can_spawn_star: bool = false
 
 func _on_timeout():
 	
@@ -16,7 +16,8 @@ func _on_timeout():
 	spawner_pool.clear()
 	if (can_spawn_star): spawner_pool.append(item_star_scene)
 	
-	spawn_item()
+	if not spawner_pool.is_empty():
+		spawn_item()
 
 
 func spawn_item():

@@ -12,6 +12,8 @@ func _process(delta):
 
 func blue_orange_hex():
 	print("blue_orange_hex")
+	get_tree().current_scene.get_node("HexSpawner").can_spawn_blue = true
+	get_tree().current_scene.get_node("HexSpawner").can_spawn_orange = true
 	pass
 	
 func laser():
@@ -36,6 +38,7 @@ func array_laser():
 	
 func invulnerable_star():
 	print("invulnerable_star")
+	get_tree().current_scene.get_node("ItemSpawner").can_spawn_star = true
 	pass
 	
 func three_lifes():
