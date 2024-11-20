@@ -11,6 +11,15 @@ func _ready():
 func _process(delta):
 	pass
 
+func change_icon(index,image):
+	match index:
+		1:
+			$CenterContainer/HBoxContainer/Option1.texture_normal = image
+		2:
+			$CenterContainer/HBoxContainer/Option2.texture_normal = image
+		3:
+			$CenterContainer/HBoxContainer/Option3.texture_normal = image
+
 
 func _on_option_1_button_up():
 	GameManager.resume_game()
