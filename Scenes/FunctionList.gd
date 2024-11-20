@@ -19,10 +19,19 @@ func laser():
 	var laser_scene = load("res://Objects/laser_spawner.tscn")
 	var laser_node = laser_scene.instantiate()
 	get_tree().current_scene.add_child(laser_node)
+	
+	GameManager.option_list.append(
+		{
+			"callable":array_laser,
+			"icon":load("res://Images/icon/array_laser.png")
+		}
+	)
 	pass
 
 func array_laser():
 	print("array_laser")
+	get_tree().current_scene.get_node("LaserSpawner").can_spawn_vertical_array_laser = true
+	get_tree().current_scene.get_node("LaserSpawner").can_spawn_horizontal_array_laser = true
 	pass	
 	
 func invulnerable_star():
