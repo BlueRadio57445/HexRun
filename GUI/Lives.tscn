@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://3ns1esujhac5"]
+[gd_scene load_steps=3 format=3 uid="uid://c2lwice35vop6"]
 
 [ext_resource type="Script" path="res://GUI/Lives.gd" id="1_i6ttc"]
 [ext_resource type="Texture2D" uid="uid://wpwb6n37hei5" path="res://Images/square.png" id="2_k8yni"]
@@ -20,12 +20,14 @@ offset_bottom = 40.0
 texture = ExtResource("2_k8yni")
 
 [node name="livePoint2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 70.0
 offset_right = 110.0
 offset_bottom = 40.0
 texture = ExtResource("2_k8yni")
 
 [node name="livePoint3" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 140.0
 offset_right = 180.0
 offset_bottom = 40.0

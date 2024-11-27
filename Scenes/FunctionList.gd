@@ -1,5 +1,6 @@
 extends Node
 
+@export var lives : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,4 +44,6 @@ func invulnerable_star():
 	
 func three_lifes():
 	print("three_lifes")
+	lives.show()
+	lives.active()
 	pass

@@ -5,7 +5,7 @@ func _ready():
 	var canvas_rid = get_canvas_item()
 	RenderingServer.canvas_item_set_z_index(canvas_rid, 100)
 	
-	LiveCount.lives = 3
+	restart()
 	
 func _physics_process(delta):
 	if LiveCount.lives == 2:
@@ -14,8 +14,11 @@ func _physics_process(delta):
 		$livePoint2.hide()
 	if LiveCount.lives == 0:
 		$livePoint1.hide()
-		
+
 func restart():
+	LiveCount.lives=1
+
+func active():
 	LiveCount.lives = 3
 	$livePoint1.show()
 	$livePoint2.show()

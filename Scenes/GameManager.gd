@@ -59,15 +59,12 @@ func game_start():
 	score.show()
 	score.restart()
 	
-	lives.show()
-	lives.restart()
-	
 	$RoguelikeTimer.start()
 	
 func restart_game():
 	end_menu.hide()
 	GameManager.score.restart()
-	GameManager.lives.restart()
+	lives.restart()
 	$RoguelikeTimer.start()
 	get_tree().reload_current_scene()
 	

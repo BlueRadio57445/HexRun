@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/GameManager.gd" id="1_7du4e"]
 [ext_resource type="PackedScene" uid="uid://cq6g3unao8o03" path="res://GUI/EndMenu.tscn" id="2_nr4ej"]
 [ext_resource type="PackedScene" uid="uid://cvqpcit0grmrc" path="res://GUI/RoguelikeMenu.tscn" id="4_k6e5l"]
-[ext_resource type="PackedScene" path="res://GUI/Lives.tscn" id="5_6mx6p"]
+[ext_resource type="PackedScene" uid="uid://c2lwice35vop6" path="res://GUI/Lives.tscn" id="5_6mx6p"]
 [ext_resource type="Script" path="res://Scenes/FunctionList.gd" id="6_detu4"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("score", "lives", "end_menu", "roguelike_menu", "function_list")]
@@ -34,7 +34,8 @@ offset_bottom = 156.0
 wait_time = 15.0
 one_shot = true
 
-[node name="FunctionList" type="Node" parent="."]
+[node name="FunctionList" type="Node" parent="." node_paths=PackedStringArray("lives")]
 script = ExtResource("6_detu4")
+lives = NodePath("../CanvasLayer/Lives")
 
 [connection signal="timeout" from="RoguelikeTimer" to="." method="_on_roguelike_timer_timeout"]
